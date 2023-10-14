@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+    font-size: 62.5%;
+    font-family: 'Mulish', sans-serif;
+
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-blue-100: #065E7C;
+    --color-base-blue-200: #387e96;
+    --color-base-blue-300: #202024;
+    --color-base-blue-400: #121214;
+}
+
+header{
+    max-width: 100%;
+    height: 7.2rem;
+    padding: 1.2rem 2.8rem;
+    display: flex;
+    align-items: center;
+    gap: 2.6rem;
+    background-color: var(--color-base-blue-100);
+}
+
+header form{
+    flex: 1;
+}
+
+.input-wrapper label{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input{
+    width: 100%;
+    height: 4rem;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background-color: var(--color-base-blue-200);
+    padding: 1.2rem 1.4rem;
+}
+
+.input-wrapper input::placeholder{
+    color: var(--color-base-white);
+}
+
+.avatar{
+    width: 4.2rem;
+    height: 4.2rem;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+#app{
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+#cat{
+    width: 100%;
+    margin-bottom: 3.2rem;
+}
+
+.container{
+    padding: 0 2.6rem 0 2.2rem;
+}
+
+main{
+    margin-bottom: 3.4rem;
+}
+
+main h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-base-blue-300);
+    margin-bottom: .8rem;
+}
+
+main .action{
+    margin-bottom: 3.2rem;
+}
+
+main button{
+    border: 0;
+    text-decoration: none;
+    font-style: none;
+    background: none;
+
+}
+
+main button:nth-child(01){
+    margin-right: 1.2rem;
+}
+
+main p{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-base-blue-400);
+}
+
+sidebar h1, section{
+    padding: 0 2.4rem 0 2.2rem;
+}
+
+sidebar h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 3.2rem;
+    color: var(--color-base-blue-300);
+}
+
+figure{
+    display: flex;
+    margin-bottom: 3.2rem;
+}
+
+figure img{
+    margin-right: 1.6rem;
+}
+
+a{
+    display: flex;
+    text-decoration: none;
+}
+
+.details h2{
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    color: var(--color-base-blue-400);
+}
+
+.details p{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-base-blue-400);
+}
+
+footer{
+    padding: 1.6rem;
+    background-color: var(--color-base-blue-200);
+    text-align: center;
+    color: var(--color-base-white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 3.9rem;
+}
+
+header{
+    --startY: -100%;
+    animation: move .2s;
+}
+
+footer{
+    --startY: 100%;
+    animation: move .2s;
+}
+
+@keyframes move{
+    from{
+        transform: translateY(var(--startY));
+    }
+}
+
+.item{
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+
+@media (min-width: 1120px){
+    #app{
+        max-width: 100%;
+        height: auto;
+        display: grid;
+        column-gap: 3.4rem;
+        grid-template-rows: max-content auto max-content;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "header header"
+        "main sidebar"
+        "footer footer"
+        ;
+    }
+
+    .input-wrapper input{
+        width: 100%;
+    }
+
+    #cat{
+        padding: 4.4rem 3.4rem 3.1rem 1.0rem;
+        width:100%;
+    }
+
+    header{
+        grid-area: header;
+        padding: 0 11.2rem;
+    }
+
+    main {
+        grid-area: main;
+        padding-left: 10.9rem;
+        width: 100%;
+        height: auto;
+    }
+
+    .inline{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container{
+        width: 100%;
+        height: auto;
+    }
+
+    .scroll{
+        overflow-y: scroll;
+    }
+
+    sidebar{
+        grid-area: sidebar;
+        width: 540px;
+        padding: 4.4rem 11.1rem 0 0;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+}
